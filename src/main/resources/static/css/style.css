@@ -5,9 +5,14 @@ body {
   background-blend-mode: overlay;
 }
 
-h1, h2 {
+h1{
     color: #0000ff;
 }
+h2{
+    color: #0000ff;
+    margin-left: 40%;
+}
+
 button {
     background-color: #0000ff;
     color: white;

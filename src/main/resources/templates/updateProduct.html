@@ -6,7 +6,7 @@
     <link rel="stylesheet" th:href="@{/css/modify.css}">
 </head>
 <body>
-	        
+	<h2>Product Modification</h2>       
     <form th:action="@{/updateProduct}" th:object="${product}" method="post">
         <input type="hidden" th:field="*{id}">
         Name: <input type="text" th:field="*{name}" required>
