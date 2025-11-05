@@ -1,0 +1,15 @@
+form {
+    margin: 20px auto;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="checkbox"]{
+	width: 30%;
+}
+
+input, button {
+    margin: 8px 0;
+    width: 60%;
+}

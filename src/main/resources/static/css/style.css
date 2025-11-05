@@ -1,0 +1,23 @@
+body {
+  background: 
+    linear-gradient(to right, rgba(0,20,0,0.7), rgba(0,20,0,0.9)),
+    url('your-image.jpg');
+  background-blend-mode: overlay;
+}
+
+h1, h2 {
+    color: #0000ff;
+}
+button {
+    background-color: #0000ff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+        a {
+            text-decoration: none;
+            color: #0000ff;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
