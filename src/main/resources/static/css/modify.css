@@ -10,7 +10,13 @@ input[type="checkbox"]{
 	width: 30%;
 }
 
-input, button {
+input{
+    margin: 8px 0;
+    width: 60%;
+    border-radius: 4px;
+    height: 20px;
+}
+ button {
     margin: 8px 0;
     width: 60%;
 }
