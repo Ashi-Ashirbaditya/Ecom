@@ -18,6 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Product {
 	
+	@Id
 	public int getId() {
 		return id;
 	}
