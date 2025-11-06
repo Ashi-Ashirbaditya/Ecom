@@ -4,6 +4,13 @@
     <title>Products Page</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="stylesheet" th:href="@{/css/modify.css}">
+    <script type = "text/javascript" >  
+        function preventBack(){
+          window.history.forward();
+        }   
+        setTimeout("preventBack()", 0);  
+        window.onunload = function () { null };  
+    </script> 
 </head>
 <body>
 	<h2>Product Modification</h2>       
