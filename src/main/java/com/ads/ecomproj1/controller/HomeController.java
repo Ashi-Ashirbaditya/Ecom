@@ -59,6 +59,7 @@ public class HomeController {
     @GetMapping("/addProduct")
     public String showAddProductForm(Model model) {
         model.addAttribute("newProduct", new Product());
+        model.addAttribute("category", categoryService.getAllCategory());
         return "addProduct";
     }
     // Show form to add a new Category
@@ -86,6 +87,7 @@ public class HomeController {
     @GetMapping("/updateProduct/{id}")
     public String showEditProductForm(@PathVariable("id") int id, Model model) {
         Product existingProduct = productService.getProductById((long) id);
+        model.addAttribute("category", categoryService.getAllCategory());
         model.addAttribute("product", existingProduct);
         return "updateProduct";
     }
@@ -115,7 +117,7 @@ public class HomeController {
         model.addAttribute("sortDir", sortDir);
         model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
 
-        model.addAttribute("products", listProducts);
+        model.addAttribute("listProducts", listProducts);
 
         return "products";
     }
