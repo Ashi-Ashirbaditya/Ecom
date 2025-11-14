@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Products Page</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/products.css}">
+    <script type = "text/javascript" >  
+        function preventBack(){
+          window.history.forward();
+        }   
+        setTimeout("preventBack()", 0);  
+        window.onunload = function () { null };  
+    </script> 
+</head>
+<body>
+	<a href="/">← Back to Home</a>
+    <h2>Product List</h2>
+	<a th:href="@{/addProduct}">
+		<button class="btn">Add Products</button>
+	</a>
+    <table border="1">
+        <tr>
+            <th><a th:href="@{'/page/' + ${currentPage} + '?sortField=id&sortDir=' + ${reverseSortDir}}">ID</a></th>
+            <th><a th:href="@{'/page/' + ${currentPage} + '?sortField=name&sortDir=' + ${reverseSortDir}}">Name</a></th>
+            <th><a th:href="@{'/page/' + ${currentPage} + '?sortField=price&sortDir=' + ${reverseSortDir}}">Price</a></th>
+			<th><a th:href="@{'/page/' + ${currentPage} + '?sortField=brand&sortDir=' + ${reverseSortDir}}">Brand</a></th>
+			<th><a th:href="@{'/page/' + ${currentPage} + '?sortField=category&sortDir=' + ${reverseSortDir}}">Category</a></th>
+			<th>Description</th>
+			<th><a th:href="@{'/page/' + ${currentPage} + '?sortField=quantity&sortDir=' + ${reverseSortDir}}">Quantity</a></th>
+			<th><a th:href="@{'/page/' + ${currentPage} + '?sortField=releaseDate&sortDir=' + ${reverseSortDir}}">Release Date</a></th>
+			<th><a th:href="@{'/page/' + ${currentPage} + '?sortField=available&sortDir=' + ${reverseSortDir}}">Availability</a></th>
+			<th>Last Update</th>
+			<th colspan=2>Action</th>
+        </tr>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.price}"></td>
+			<td th:text="${product.brand}"></td>
+			<td th:text="${product.category}"></td>
+			<td th:text="${product.descp}"></td>
+			<td th:text="${product.quantity}"></td>
+			<td th:text="${product.releaseDate}"></td>
+			<td th:text="${product.available}"></td>
+			<td th:text="${#temporals.format(product.lastUpdated, 'yyyy-MM-dd HH:mm:ss')}"></td>
+			<td>
+				<a th:href="@{'/products/delete/' + ${product.id}}"
+					onclick="return confirm('Are you sure you want to delete this product?')">
+			    	Delete
+				</a>
+			</td>
+			<td>
+				<a th:href="@{'/updateProduct/' + ${product.id}}">Update</a>
+			</td>
+			
+        </tr>
+    </table>
+    
+    <div th:if = "${totalPages > 1}">
+ <div class = "row col-sm-10">
+ <div class = "col-sm-2">
+ Total Rows: [[${totalItems}]]
+ </div>
+ <div class = "col-sm-1">
+ <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+ <a th:if="${currentPage != i}" th:href="@{'/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir='
++ ${sortDir}}">[[${i}]]</a>
+ <span th:unless="${currentPage != i}">[[${i}]]</span> &nbsp; &nbsp;
+ </span>
+ </div>
+ <div class = "col-sm-1">
+ <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${currentPage + 1}+ '?sortField=' +
+${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+ <span th:unless="${currentPage < totalPages}">Next</span>
+ </div>
+ <div class="col-sm-1">
+ <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${totalPages}+ '?sortField=' +
+${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+ <span th:unless="${currentPage < totalPages}">Last</span>
+ </div></div>
+ </div>
+ 
+</body>
+</html>

@@ -1,0 +1,25 @@
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+th {
+    background-color: #2a5d84;
+    color: #0000ff;
+}
+.btn{
+ 	margin: 8px 0;
+    width: 10%;
+    margin-left: 38%;
+	background-color: #0000ff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+ }

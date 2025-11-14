@@ -1,8 +1,5 @@
 package com.ads.ecomproj1.service;
 
-import java.time.LocalDateTime;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,6 +9,9 @@ import org.springframework.stereotype.Service;
 
 import com.ads.ecomproj1.model.Product;
 import com.ads.ecomproj1.repo.ProductRepo;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class ProductService {

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Categories</title>
+</head>
+<body>
+    <a href="/">← Back to Home</a>
+    <h1>Categories</h1>
+
+    <!-- Form to add new category -->
+    <form th:action="@{/categories}" th:object="${newCategory}" method="post">
+        <input type="text" th:field="*{name}" placeholder="Enter category name" required>
+        <button type="submit">Add Category</button>
+    </form>
+
+    <hr>
+
+    <!-- Display existing categories -->
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="cat : ${categories}">
+            <td th:text="${cat.id}"></td>
+            <td th:text="${cat.name}"></td>
+            <td>
+                <a th:href="@{'/categories/delete/' + ${cat.id}}"
+                   onclick="return confirm('Delete this category?')">
+                    Delete
+                </a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

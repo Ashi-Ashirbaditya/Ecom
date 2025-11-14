@@ -16,14 +16,28 @@
 	<h2>Product Modification</h2>       
     <form th:action="@{/updateProduct}" th:object="${product}" method="post">
         <input type="hidden" th:field="*{id}">
-        Name: <input type="text" th:field="*{name}" required>
-        Price: <input type="number" th:field="*{price}" step="0.01" required>
-        Brand: <input type="text" th:field="*{brand}" required><br>
-		Category: <input type="text" th:field="*{category}" required>
-		Description: <input type="text" th:field="*{descp}">
-		Quantity<input type="text" th:field="*{quantity}" required><br>
-		Release Date: <input type="date" th:field="*{releaseDate}" >
-		Availablity: <input type="checkbox" th:field="*{available}">
+        <label>Name:</label>
+        <input type="text" th:field="*{name}" required>
+        <label>Price:</label>
+        <input type="number" th:field="*{price}" step="0.01" required>
+        <label>Brand:</label>
+        <input type="text" th:field="*{brand}" required><br>
+        <label>Category:</label>
+        <select th:field="*{category}" >
+            <option value="" disabled selected>Select Category</option>
+            <option th:each="cat : ${category}"
+                    th:value="${cat.id}"
+                    th:text="${cat.name}">
+            </option>
+        </select>
+		<label>Description:</label>
+        <input type="text" th:field="*{descp}">
+		<label>Quantity</label>
+        <input type="text" th:field="*{quantity}" required><br>
+        <label>Release Date:</label>
+        <input type="date" th:field="*{releaseDate}" >
+		<label>Availablity:</label>
+        <input type="checkbox" th:field="*{available}">
 		
         <button type="submit">Save Changes</button>
            <a th:href="@{/products}">

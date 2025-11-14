@@ -25,9 +25,9 @@
 			<input type="text" th:field="*{brand}" step="0.01" required><br>
 
 			<label>Category:</label>
-			<select th:field="*{category}" >
+			<select th:field="*{category}" required>
 			<option value="" disabled selected>Select Category</option>
-    				<option th:each="cat : ${category}"
+    				<option th:each="cat : ${categories}"
             				th:value="${cat.id}"
             				th:text="${cat.name}">
     				</option>	

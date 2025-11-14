@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>New Product Page</title>
+    <link rel="stylesheet" th:href="@{/css/new.css}">
+    <script type = "text/javascript" >
+        function preventBack(){
+          window.history.forward();
+        }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">Add New Category</h2>
+
+    <form th:action="@{/saveCategory}" th:object="${category}" method="post">
+        <div class="form-group mb-3">
+            <label>Category Name</label>
+            <input type="text" class="form-control" th:field="*{name}" placeholder="Category Name" required/>
+        </div>
+
+        <button type="submit" class="btn btn-success">Save Category</button>
+        <a class="btn btn-secondary" th:href="@{/category}">Cancel</a>
+    </form>
+    <hr>
+</div>
+
+</body>
+</html>
