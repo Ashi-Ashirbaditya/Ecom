@@ -71,14 +71,19 @@
  <div class = "col-sm-1">
  <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${currentPage + 1}+ '?sortField=' +
 ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
- <span th:unless="${currentPage < totalPages}">Next</span>
+ <span th:unless="${currentPage < totalPages}"></span>
  </div>
  <div class="col-sm-1">
  <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${totalPages}+ '?sortField=' +
 ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
- <span th:unless="${currentPage < totalPages}">Last</span>
+ <span th:unless="${currentPage < totalPages}"></span>
  </div></div>
  </div>
+<div class = "col-sm-1">
+    <a th:if="${currentPage == totalPages}" th:href="@{'/page/' + ${currentPage - 1}+ '?sortField=' +
+${sortField} + '&sortDir=' + ${sortDir}}">prev</a>
+    <span th:unless="${currentPage < totalPages}"></span>
+</div>
  
 </body>
 </html>
